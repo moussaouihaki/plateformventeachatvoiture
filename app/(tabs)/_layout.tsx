@@ -36,34 +36,39 @@ export default function TabLayout() {
 
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: '#b49a5e',
-          tabBarInactiveTintColor: '#94a3b8',
+          tabBarActiveTintColor: '#ffffff',
+          tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.5)',
           headerShown: false,
           tabBarButton: HapticTab,
+          tabBarLabelStyle: {
+            fontSize: 11,
+            fontWeight: '600',
+            marginBottom: -5,
+          },
           tabBarStyle: isDesktop ? { display: 'none' } : {
             position: 'absolute',
-            bottom: 20,
-            left: 20,
-            right: 20,
-            elevation: 0,
-            backgroundColor: 'transparent',
+            bottom: 34,
+            left: 24,
+            right: 24,
+            height: 72,
+            borderRadius: 36,
+            backgroundColor: Platform.OS === 'web' ? 'rgba(15, 23, 42, 0.85)' : 'transparent',
             borderTopWidth: 0,
-            height: 70,
-            borderRadius: 35,
-            overflow: 'hidden',
+            paddingBottom: 10,
+            paddingTop: 10,
+            elevation: 0,
             shadowColor: '#000',
             shadowOffset: { width: 0, height: 10 },
-            shadowOpacity: 0.1,
-            shadowRadius: 15,
-          },
-          tabBarItemStyle: {
-            paddingTop: 10,
+            shadowOpacity: 0.3,
+            shadowRadius: 20,
+            borderWidth: 1,
+            borderColor: 'rgba(255, 255, 255, 0.1)',
           },
           tabBarBackground: () => isDesktop ? null : (
             <BlurView
-              tint="light"
-              intensity={80}
-              style={StyleSheet.absoluteFill}
+              tint="dark"
+              intensity={95}
+              style={[StyleSheet.absoluteFill, { borderRadius: 36 }]}
             />
           ),
         }}>
@@ -71,36 +76,73 @@ export default function TabLayout() {
           name="index"
           options={{
             title: 'Accueil',
-            tabBarIcon: ({ color }) => <Home size={24} color={color} />,
+            tabBarIcon: ({ color, focused }) => (
+              <View style={[styles.iconContainer, focused && styles.activeIconContainer]}>
+                <Home size={22} color={color} />
+              </View>
+            ),
           }}
         />
         <Tabs.Screen
           name="buy"
           options={{
             title: 'Acheter',
-            tabBarIcon: ({ color }) => <Car size={24} color={color} />,
+            tabBarIcon: ({ color, focused }) => (
+              <View style={[styles.iconContainer, focused && styles.activeIconContainer]}>
+                <Car size={22} color={color} />
+              </View>
+            ),
           }}
         />
         <Tabs.Screen
           name="sell"
           options={{
             title: 'Vendre',
-            tabBarIcon: ({ color }) => <Tag size={24} color={color} />,
+            tabBarIcon: ({ color, focused }) => (
+              <View style={[styles.iconContainer, focused && styles.activeIconContainer]}>
+                <Tag size={22} color={color} />
+              </View>
+            ),
           }}
         />
         <Tabs.Screen
           name="profile"
           options={{
             title: 'Profil',
-            tabBarIcon: ({ color }) => <User size={24} color={color} />,
+            tabBarIcon: ({ color, focused }) => (
+              <View style={[styles.iconContainer, focused && styles.activeIconContainer]}>
+                <User size={22} color={color} />
+              </View>
+            ),
           }}
         />
       </Tabs>
+      
+      {/* CSS For Backdrop Filter on Web */}
+      {Platform.OS === 'web' && (
+        <style dangerouslySetInnerHTML={{ __html: `
+          div[style*="position: absolute"][style*="bottom: 34px"] {
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+          }
+        `}} />
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  iconContainer: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: -4,
+  },
+  activeIconContainer: {
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+  },
   webHeader: {
     backgroundColor: '#ffffff',
     borderBottomWidth: 1,
