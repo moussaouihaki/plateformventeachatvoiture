@@ -37,14 +37,16 @@ export default function HomeScreen() {
             </Text>
             
             {/* FLOATING SEARCH BAR */}
-            <View style={styles.floatingSearchBar}>
-              <Search color="#64748b" size={24} style={{ marginLeft: 8 }} />
-              <TextInput 
-                placeholder="Ex: Porsche Macan, Tesla..." 
-                placeholderTextColor="#94a3b8"
-                style={styles.searchInput}
-              />
-              <Pressable style={styles.searchButtonPrimary} onPress={() => router.push('/buy')}>
+            <View style={[styles.floatingSearchBar, width < 768 && { flexDirection: 'column', gap: 10, padding: 12 }]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, width: '100%' }}>
+                <Search color="#64748b" size={20} style={{ marginLeft: 8 }} />
+                <TextInput 
+                  placeholder="Ex: Porsche Macan, Tesla..." 
+                  placeholderTextColor="#94a3b8"
+                  style={[styles.searchInput, width < 768 && { fontSize: 16 }]}
+                />
+              </View>
+              <Pressable style={[styles.searchButtonPrimary, width < 768 && { width: '100%', alignItems: 'center' }]} onPress={() => router.push('/buy')}>
                 <Text style={styles.searchButtonText}>Chercher</Text>
               </Pressable>
             </View>
@@ -52,20 +54,20 @@ export default function HomeScreen() {
         </View>
 
         {/* OVERLAPPING STATS CARD */}
-        <View style={styles.statsOverlapContainer}>
-          <View style={styles.statsCard}>
+        <View style={[styles.statsOverlapContainer, width < 768 && { marginTop: -20 }]}>
+          <View style={[styles.statsCard, width < 768 && { padding: 20 }]}>
             <View style={styles.statBox}>
-              <Text style={styles.statValue}>100%</Text>
+              <Text style={[styles.statValue, width < 768 && { fontSize: 24 }]}>100%</Text>
               <Text style={styles.statLabel}>Paiement Sécurisé</Text>
             </View>
-            <View style={styles.statDivider} />
+            <View style={[styles.statDivider, width < 768 && { display: 'none' }]} />
             <View style={styles.statBox}>
-              <Text style={styles.statValue}>+20%</Text>
+              <Text style={[styles.statValue, width < 768 && { fontSize: 24 }]}>+20%</Text>
               <Text style={styles.statLabel}>Prix Net Vendeur</Text>
             </View>
-            <View style={styles.statDivider} />
+            <View style={[styles.statDivider, width < 768 && { display: 'none' }]} />
             <View style={styles.statBox}>
-              <Text style={styles.statValue}>3-24</Text>
+              <Text style={[styles.statValue, width < 768 && { fontSize: 24 }]}>3-24</Text>
               <Text style={styles.statLabel}>Mois de Garantie</Text>
             </View>
           </View>
@@ -256,7 +258,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#ffffff' },
   scrollContent: { paddingBottom: 0 },
   
-  heroSection: { height: 650, width: '100%', position: 'relative', backgroundColor: '#0f172a', justifyContent: 'center', alignItems: 'center' },
+  heroSection: { height: Dimensions.get('window').width < 768 ? 580 : 650, width: '100%', position: 'relative', backgroundColor: '#0f172a', justifyContent: 'center', alignItems: 'center' },
   heroImage: { width: '100%', height: '100%', position: 'absolute', top: 0, opacity: 0.6 },
   heroContent: { width: '100%', maxWidth: 1024, paddingHorizontal: 24, alignItems: 'center', zIndex: 10, marginTop: 40 },
   heroBadge: { backgroundColor: 'rgba(255,255,255,0.1)', paddingHorizontal: 16, paddingVertical: 8, borderRadius: 100, marginBottom: 20, borderWidth: 1, borderColor: 'rgba(255,255,255,0.2)' },
