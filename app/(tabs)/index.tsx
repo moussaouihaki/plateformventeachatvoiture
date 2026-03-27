@@ -27,10 +27,12 @@ export default function HomeScreen() {
           
           <View style={styles.heroContent}>
             <View style={styles.heroBadge}>
-              <Text style={styles.heroBadgeText}>N°1 DE L'AUTOMOBILE EN SUISSE</Text>
-            </View>
-            <Text style={styles.heroTitle}>La confiance au cœur de l'automobile.</Text>
-            <Text style={styles.heroSubtitle}>
+            <Text style={styles.heroBadgeText}>NOUVELLE FAÇON DE VENDRE & ACHETER</Text>
+          </View>
+          <Text style={[styles.heroTitle, { fontSize: Dimensions.get('window').width < 768 ? 40 : 56, lineHeight: Dimensions.get('window').width < 768 ? 48 : 62 }]}>
+            Le Courtier Automobile Premium.
+          </Text>
+          <Text style={[styles.heroSubtitle, { fontSize: Dimensions.get('window').width < 768 ? 16 : 18 }]}>
               Découvrez la première plateforme suisse qui sécurise l'achat et la vente de véhicules entre particuliers avec un compte séquestre dédié.
             </Text>
             
@@ -268,7 +270,7 @@ const styles = StyleSheet.create({
   searchButtonText: { color: '#ffffff', fontWeight: '800', fontSize: 16 },
 
   statsOverlapContainer: { marginTop: -60, paddingHorizontal: 24, zIndex: 20, width: '100%', maxWidth: 1024, alignSelf: 'center' },
-  statsCard: { flexDirection: 'row', backgroundColor: '#ffffff', borderRadius: 24, padding: 30, justifyContent: 'space-around', alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 10 }, shadowOpacity: 0.08, shadowRadius: 30, borderWidth: 1, borderColor: '#f1f5f9' },
+  statsCard: { flexDirection: 'row', flexWrap: 'wrap', gap: 20, backgroundColor: '#ffffff', borderRadius: 24, padding: 30, justifyContent: 'space-around', alignItems: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 10 }, shadowOpacity: 0.08, shadowRadius: 30, borderWidth: 1, borderColor: '#f1f5f9' },
   statBox: { alignItems: 'center' },
   statValue: { fontSize: 36, fontWeight: '900', color: '#0f172a', letterSpacing: -1 },
   statLabel: { fontSize: 13, color: '#64748b', fontWeight: '600', textTransform: 'uppercase', marginTop: 4 },

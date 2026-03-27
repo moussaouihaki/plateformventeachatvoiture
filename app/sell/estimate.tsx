@@ -140,8 +140,8 @@ const styles = StyleSheet.create({
   pricingBadgeText: { color: '#166534', fontWeight: '700', fontSize: 13 },
   
   compareContainer: { backgroundColor: '#f8fafc', borderRadius: 20, borderWidth: 1, borderColor: '#e2e8f0', marginBottom: 40 },
-  compareRow: { flexDirection: 'row', padding: 20 },
-  compareCol: { flex: 1, paddingHorizontal: 10 },
+  compareRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 20, padding: 20, justifyContent: 'center' },
+  compareCol: { flex: 1, minWidth: 140, paddingHorizontal: 10, alignItems: 'center' },
   compareDivider: { width: 1, backgroundColor: '#e2e8f0' },
   compareTitle: { fontSize: 14, color: '#64748b', fontWeight: '600', marginBottom: 8 },
   comparePrice: { fontSize: 20, fontWeight: '700', color: '#cbd5e1', marginBottom: 8, textDecorationLine: 'line-through' },

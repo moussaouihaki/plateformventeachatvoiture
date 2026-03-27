@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
   formTitle: { fontSize: 22, fontWeight: '700', color: '#0f172a', marginBottom: 6 },
   formSubtitle: { fontSize: 14, color: '#475569' },
   inputGroup: { marginBottom: 20 },
-  rowInputs: { flexDirection: 'row', gap: 16 },
+  rowInputs: { flexDirection: 'row', flexWrap: 'wrap', gap: 16 },
   label: { fontSize: 14, fontWeight: '600', color: '#334155', marginBottom: 8 },
   inputWrapper: {
     flexDirection: 'row', alignItems: 'center', backgroundColor: '#ffffff',

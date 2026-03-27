@@ -164,7 +164,7 @@ export default function BuyScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f8fafc', paddingTop: 60 },
   header: { marginBottom: 20, paddingHorizontal: 20, maxWidth: 1024, width: '100%', alignSelf: 'center' },
-  headerTopLine: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
+  headerTopLine: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
   title: { fontSize: 32, fontWeight: '900', color: '#0f172a', letterSpacing: -1 },
   trustMiniBadge: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#fdfbf7', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 100, gap: 6 },
   trustMiniText: { fontSize: 13, color: '#8c7343', fontWeight: '700' },
